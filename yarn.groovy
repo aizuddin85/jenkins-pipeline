@@ -29,10 +29,10 @@ pipeline {
                     #!/bin/bash
 
                     set +x
-                    mkdir -p ${WORKSPACE}/configurations
-                    mkdir -p ${WORKSPACE}/deployconfigs
-                    mkdir -p ${WORKSPACE}/deploy
-                    mkdir -p ${WORKSPACE}/source
+                    mkdir -pv ${WORKSPACE}/configurations
+                    mkdir -pv ${WORKSPACE}/deployconfigs
+                    mkdir -pv ${WORKSPACE}/deploy
+                    mkdir -pv ${WORKSPACE}/source
 
                     '''
 
