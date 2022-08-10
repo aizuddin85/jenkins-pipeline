@@ -1,0 +1,14 @@
+FROM registry.redhat.io/openshift4/ose-jenkins-agent-base
+
+#RUN dnf -y module enable container-tools:rhel8; dnf -y update; dnf -y reinstall shadow-utils; dnf -y install skopeo fuse-overlayfs; rm -rf /var/cache /var/log/dnf* /var/log/yum.*
+RUN dnf -y module enable container-tools:rhel8; dnf -y update; dnf -y reinstall shadow-utils; dnf -y module enable nodejs:16; dnf -y install nodejs; rm -rf /var/cache /var/log/dnf* /var/log/yum.*
+
+# Adjust storage.conf to enable Fuse storage.
+#RUN sed -i -e 's|^#mount_program|mount_program|g' -e '/additionalimage.*/a "/var/lib/shared",' /etc/containers/storage.conf
+RUN mkdir -p /var/lib/shared/overlay-images /var/lib/shared/overlay-layers; touch /var/lib/shared/overlay-images/images.lock; touch /var/lib/shared/overlay-layers/layers.lock
+
+RUN npm install --global yarn
+
+RUN chown -R 1001:0 $HOME && chmod -Rv g+rwx $HOME
+
+USER 1001
