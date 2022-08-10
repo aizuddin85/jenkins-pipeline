@@ -78,7 +78,7 @@ pipeline {
                                 yarn config set npmAuthIdent $N_USER:$N_PASS
                                 echo "always-auth=true" >> ~/.npmrc
                                 echo "_auth=''' + auth + '''" >> ~/.npmrc
-                                
+
                                 echo Read version from package.json
                                 node --eval="process.stdout.write(require('./package.json').version)"
                             '''
@@ -89,6 +89,8 @@ pipeline {
                                 set +x
                                 pwd
                                 ls -lart ../
+                                sonarqube-scanner
+
                                 export PATH=~/bin:$PATH
                                 echo yarnrc content
                                 cat /home/jenkins/.yarnrc
