@@ -68,7 +68,6 @@ pipeline {
                                 rm -rvf yarn.lock
 
                                 npm config set registry http://nexus.cicd.svc.cluster.local:8081/nexus/content/groups/npm-group/
-                                echo "_auth=''' + auth + '''" >> ~/.npmrc
 								npm config set prefix "/home/jenkins"
                                 npm config set strict-ssl false
                                 npm config set strict-ssl true
@@ -77,6 +76,8 @@ pipeline {
                                 yarn config set unsafeHttpWhitelist nexus.cicd.svc.cluster.local:8081
                                 yarn config set npmAlwaysAuth true
                                 yarn config set npmAuthIdent $N_USER:$N_PASS
+
+                                echo "_auth=''' + auth + '''" >> ~/.npmrc
                             '''
 
                              sh '''
