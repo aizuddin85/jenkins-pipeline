@@ -76,7 +76,7 @@ pipeline {
                                 yarn config set unsafeHttpWhitelist nexus.cicd.svc.cluster.local:8081
                                 yarn config set npmAlwaysAuth true
                                 yarn config set npmAuthIdent $N_USER:$N_PASS
-
+                                echo "always-auth=true" >> ~/.npmrc
                                 echo "_auth=''' + auth + '''" >> ~/.npmrc
                             '''
 
