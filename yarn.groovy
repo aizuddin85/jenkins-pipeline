@@ -41,10 +41,6 @@ pipeline {
                     // sh "mkdir -p ${WORKSPACE}/deploy"
                     // sh "mkdir -p ${WORKSPACE}/source"
 
-                    if (ref.contains('refs/heads/')) {
-                        ref = ref.replace('refs/heads/', '')
-                    }
-
                     dir ("${WORKSPACE}/source") {
                         checkout scm: [$class: 'GitSCM',
                             userRemoteConfigs: [[url: "${repo}"]],
