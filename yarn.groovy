@@ -89,7 +89,7 @@ pipeline {
                                 set +x
                                 pwd
                                 ls -lart ../
-                                sonarqube-scanner
+                                sonar-scanner
 
                                 export PATH=~/bin:$PATH
                                 echo yarnrc content
