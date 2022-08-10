@@ -81,7 +81,7 @@ pipeline {
 
 
                                 echo show version
-                                npm show . version
+                                node --eval="process.stdout.write(require('./package.json').version)"
                             '''
 
                              sh '''
