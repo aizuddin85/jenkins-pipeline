@@ -93,15 +93,9 @@ pipeline {
                                 set +x
                                 echo password $SONAR-PASS
 
-                                sonar-scanner -X -Dsonar.sources=. -Dsonar.verbose=true -Dsonar.login=$SONAR_CRED -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube.cicd.svc.cluster.local:9000
+                                sonar-scanner -Dsonar.sources=. -Dsonar.verbose=true -Dsonar.login=$SONAR_CRED -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube.cicd.svc.cluster.local:9000
 
                                 export PATH=~/bin:$PATH
-                                echo yarnrc content
-                                cat /home/jenkins/.yarnrc
-                                echo home npmrc content
-                                cat /home/jenkins/.npmrc
-                                echo usr npmrc content
-                                cat /usr/etc/npmrc
 
                                 yarn install --verbose
                                 yarn publish --verbose
