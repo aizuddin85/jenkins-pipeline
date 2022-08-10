@@ -64,6 +64,8 @@ pipeline {
                             sh '''
                                 #!/bin/bash
 
+                                rm -rvf yarn.lock
+
                                 npm config set registry http://nexus.cicd.svc.cluster.local:8081/nexus/content/groups/npm-group
                                 echo "_auth=YWRtaW46YWRtaW4xMjMK" >> ~/.npmrc
 								npm config set prefix "/home/jenkins"
@@ -85,6 +87,8 @@ pipeline {
                                 cat /home/jenkins/.yarnrc
                                 cat /home/jenkins/.npmrc
                                 cat /usr/etc/npmrc
+
+                                
 
                                 yarn install --verbose
 
