@@ -70,7 +70,7 @@ pipeline {
                                 npm config set strict-ssl false
                                 npm config set strict-ssl true
 								
-                                yarn config set npmRegistryServer http://nexus.cicd.svc.cluster.local:8081/repository/npm-group/
+                                yarn config set npmRegistryServer http://nexus.cicd.svc.cluster.local:8081/nexus/content/groups/npm-group/
                                 yarn config set unsafeHttpWhitelist nexus.cicd.svc.cluster.local:8081
                                 yarn config set npmAlwaysAuth true
                                 yarn config set npmAuthIdent $N_USER:$N_PASS
