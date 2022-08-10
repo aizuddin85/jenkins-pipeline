@@ -35,11 +35,6 @@ pipeline {
                     mkdir -p ${WORKSPACE}/source
 
                     '''
-                    
-                    // sh "mkdir -p ${WORKSPACE}/configurations"
-                    // sh "mkdir -p ${WORKSPACE}/deployconfigs"
-                    // sh "mkdir -p ${WORKSPACE}/deploy"
-                    // sh "mkdir -p ${WORKSPACE}/source"
 
                     dir ("${WORKSPACE}/source") {
                         checkout scm: [$class: 'GitSCM',
@@ -50,26 +45,6 @@ pipeline {
                             ]
                         ]
                     }
-
-                    /*dir ("${WORKSPACE}/configurations") {
-                        checkout scm: [$class: 'GitSCM',
-                            userRemoteConfigs: [[url: "${env.APP_CONFIG_DEV_URL}", credentialsId: 'gitlab-login']],
-                            branches: [[name: "main"]],
-                            extensions: [
-                                [$class: 'CloneOption', noTags: true, shallow: true]
-                            ]
-                        ]
-                    }
-
-                    dir ("${WORKSPACE}/deployconfigs") {
-                        checkout scm: [$class: 'GitSCM',
-                            userRemoteConfigs: [[url: "${env.APP_CONFIG_URL}", credentialsId: 'gitlab-login']],
-                            branches: [[name: "main"]],
-                            extensions: [
-                                [$class: 'CloneOption', noTags: true, shallow: true]
-                            ]
-                        ]
-                    } */
                 }
             }
         }
@@ -125,30 +100,5 @@ pipeline {
                 }
             }
         }
-        //TODO: Publish to nexus registry (npm-release-dev hosted repo).
-        //TODO: Sonarqube code coverage.
-        //TODO: Deploy to webserver (via SSH)
-
-
-
-
-    /*
-    post {
-        success {
-            mail body: "${serviceName}:${serviceVersion} has been built and deployed on DEV successfully.\n\n$BUILD_URL", charset: 'UTF-8', mimeType: 'text/html',
-                        subject: "[CI/CD] DEV Build - ${serviceName}:${serviceVersion}", from: "svc_cicdjenkins--do-not-reply@cgc.com.my", to: "${env.NOTIFICATION_TO_ADDRESS}"
-        }
-
-        failure {
-            mail body: "Failed to build and deploy ${serviceName}:${serviceVersion} on DEV.\n\nPlease check the status from $BUILD_URL", charset: 'UTF-8', mimeType: 'text/html',
-                        subject: "[CI/CD] DEV Build - ${serviceName}:${serviceVersion}", from: "svc_cicdjenkins--do-not-reply@cgc.com.my", to: "${env.NOTIFICATION_TO_ADDRESS}"
-        }
-
-        // Clean after build
-        always {
-            script {
-                echo "Finished!!"
-            }
-        }
-    } */
+    }
 }
