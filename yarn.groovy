@@ -78,6 +78,10 @@ pipeline {
                                 yarn config set npmAuthIdent $N_USER:$N_PASS
                                 echo "always-auth=true" >> ~/.npmrc
                                 echo "_auth=''' + auth + '''" >> ~/.npmrc
+
+
+                                echo show version
+                                npm show . version
                             '''
 
                              sh '''
