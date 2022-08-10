@@ -82,8 +82,12 @@ pipeline {
                                 set +x
                                 
                                 export PATH=~/bin:$PATH
+                                cat /home/jenkins/.yarnrc
+                                cat /home/jenkins/.npmrc
+                                cat /usr/etc/npmrc
 
                                 yarn install --verbose
+
                             '''
                         }
                     }
