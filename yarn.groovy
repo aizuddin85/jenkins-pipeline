@@ -1,12 +1,4 @@
 
-def createOcParams(def params) {
-    String paramsStr = ''
-    params.each { key, val ->
-        paramsStr += "--param=${key}=\"${val}\" "
-    }
-    return paramsStr
-}
-
 def serviceName
 def serviceVersion
 def applicationImageProject
