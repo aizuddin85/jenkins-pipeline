@@ -44,7 +44,6 @@ pipeline {
 
 
         stage('Build') {
-            when { expression { return jobOption == 'Build and Deploy' || jobOption == 'Build Only' }}
             steps {
                 script {
                     dir("${WORKSPACE}/source") {
