@@ -49,7 +49,7 @@ pipeline {
                         withCredentials([usernamePassword(credentialsId: 'nexus-login', passwordVariable: 'N_PASS', usernameVariable: 'N_USER')]) {
 
                             println "service name --> " + serviceName
-                            def auth = sh(script: 'echo ${N_USER}:${N_PASS} | base64', returnStdout: true, returnStatus: true)
+                           
                             
                              
                             //OLD_BUILD_NUMBER = BUILD_NUMBER.toInteger() - 1
@@ -65,7 +65,7 @@ pipeline {
                                 #!/bin/bash
 
                                 npm config set registry http://nexus.cicd.svc.cluster.local:8081/nexus/content/groups/npm-group
-                                echo "_auth=''' + auth + '''" >> ~/.npmrc
+                                echo "_auth=YWRtaW46YWRtaW4xMjMK" >> ~/.npmrc
 								npm config set prefix "/home/jenkins"
                                 npm config set strict-ssl false
                                 npm config set strict-ssl true
