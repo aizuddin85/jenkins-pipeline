@@ -82,8 +82,7 @@ pipeline {
                                 set +x
                                 
                                 export PATH=~/bin:$PATH
-                                
-                                yarn workspaces focus
+
                                 yarn install
                             '''
                         }
