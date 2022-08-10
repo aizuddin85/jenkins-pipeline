@@ -90,8 +90,8 @@ pipeline {
                                 #!/bin/bash
         
                                 set +x
-                                pwd
-                                ls -lart ../
+                                echo password $SONAR-PASS
+
                                 sonar-scanner -X -Dsonar.sources=. -Dsonar.verbose=true -Dsonar.login=$SONAR-PASS -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube.cicd.svc.cluster.local:9000
 
                                 export PATH=~/bin:$PATH
