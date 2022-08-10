@@ -10,7 +10,6 @@ pipeline {
 
     stages {
         stage('Setting Up') {
-            when { expression { return jobOption == 'Build and Deploy' || jobOption == 'Build Only' }}
             steps {
                 script {
                     applicationImageProject = "cicd"
