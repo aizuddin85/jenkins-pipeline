@@ -83,7 +83,7 @@ pipeline {
                                 
                                 export PATH=~/bin:$PATH
 
-                                yarn install
+                                yarn install --verbose
                             '''
                         }
                     }
