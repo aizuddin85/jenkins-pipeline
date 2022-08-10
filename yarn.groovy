@@ -89,7 +89,7 @@ pipeline {
                                 set +x
                                 pwd
                                 ls -lart ../
-                                sonar-scanner -Dsonar.verbose=true -Dsonar.login=squ_d93c95e27802a585283312b9541af4d47b1f1f9d -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube-sonarqube.cicd.svc.cluster.local:9000
+                                sonar-scanner -X -Dsonar.verbose=true -Dsonar.login=squ_d93c95e27802a585283312b9541af4d47b1f1f9d -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube-sonarqube.cicd.svc.cluster.local:9000
 
                                 export PATH=~/bin:$PATH
                                 echo yarnrc content
