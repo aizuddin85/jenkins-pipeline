@@ -32,7 +32,7 @@ pipeline {
                             userRemoteConfigs: [[url: "${repo}"]],
                             branches: [[name: "${ref}"]],
                             extensions: [
-                                [$class: 'CloneOption', noTags: true, shallow: true]
+                                [$class: 'CloneOption', noTags: true, shallow: false]
                             ]
                         ]
                     }
