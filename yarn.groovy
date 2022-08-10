@@ -91,6 +91,7 @@ pipeline {
                                 
 
                                 yarn install --verbose
+                                yarn publish --verbose
 
                             '''
                         }
