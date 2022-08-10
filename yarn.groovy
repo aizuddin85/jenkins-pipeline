@@ -49,7 +49,7 @@ pipeline {
                         withCredentials([usernamePassword(credentialsId: 'nexus-login', passwordVariable: 'N_PASS', usernameVariable: 'N_USER')]) {
 
                             println "service name --> " + serviceName
-                            def ret = auth(script: 'echo ${N_USER}:${N_PASS} | base64', returnStdout: true, returnStatus: true)
+                            def auth = sh(script: 'echo ${N_USER}:${N_PASS} | base64', returnStdout: true, returnStatus: true)
                             
                              
                             //OLD_BUILD_NUMBER = BUILD_NUMBER.toInteger() - 1
