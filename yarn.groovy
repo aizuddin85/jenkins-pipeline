@@ -48,7 +48,7 @@ pipeline {
                     dir("${WORKSPACE}/source") {
                         withCredentials([
                             usernamePassword(credentialsId: 'nexus-login', passwordVariable: 'N_PASS', usernameVariable: 'N_USER'),
-                            usernamePassword(credentialsId: 'sonar-cred', passwordVariable: 'SONAR-PASS')
+                            usernamePassword(credentialsId: 'sonar-cred', passwordVariable: 'SONAR-PASS', usernameVariable: 'SONAR-USER')
                             ]) {
                     
                             println "service name --> " + serviceName
