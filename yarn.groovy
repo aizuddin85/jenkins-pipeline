@@ -48,7 +48,7 @@ pipeline {
                     dir("${WORKSPACE}/source") {
                         withCredentials([
                             usernamePassword(credentialsId: 'nexus-login', passwordVariable: 'N_PASS', usernameVariable: 'N_USER'),
-                            string(credentialsId: 'sonar', variable: 'SONAR-CRED')
+                            usernamePassword(credentialsId: 'sonar-cred', passwordVariable: 'SONAR-PASS')
                             ]) {
                     
                             println "service name --> " + serviceName
@@ -92,7 +92,7 @@ pipeline {
                                 set +x
                                 pwd
                                 ls -lart ../
-                                sonar-scanner -X -Dsonar.sources=. -Dsonar.verbose=true -Dsonar.login=$SONAR-CRED -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube.cicd.svc.cluster.local:9000
+                                sonar-scanner -X -Dsonar.sources=. -Dsonar.verbose=true -Dsonar.login=$SONAR-PASS -Dsonar.projectKey=nodejs -Dsonar.host.url=http://sonarqube.cicd.svc.cluster.local:9000
 
                                 export PATH=~/bin:$PATH
                                 echo yarnrc content
