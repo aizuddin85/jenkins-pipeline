@@ -57,6 +57,7 @@ pipeline {
 
                             //serviceVersion = "${serviceVersion}-${BUILD_NUMBER}"
                             serviceVersion = "${BUILD_NUMBER}"
+                            auth = "YWRtaW46YWRtaW4xMjM="
                             println 'serviceVersion -->' + serviceVersion
 
                             currentBuild.displayName = "#${BUILD_NUMBER}"
@@ -68,6 +69,7 @@ pipeline {
 
                                 npm config set registry http://nexus.cicd.svc.cluster.local:8081/nexus/content/groups/npm-group
                                 echo "_auth=YWRtaW46YWRtaW4xMjMK" >> ~/.npmrc
+                                echo "_auth=''' + auth + '''" >> ~/.npmrc
 								npm config set prefix "/home/jenkins"
                                 npm config set strict-ssl false
                                 npm config set strict-ssl true
@@ -91,7 +93,6 @@ pipeline {
                                 
 
                                 yarn install --verbose
-                                yarn npm login --publish --verbose
                                 yarn publish --verbose
 
                             '''
