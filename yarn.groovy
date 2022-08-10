@@ -21,7 +21,7 @@ pipeline {
             when { expression { return jobOption == 'Build and Deploy' || jobOption == 'Build Only' }}
             steps {
                 script {
-                    applicationImageProject = "cgc-cicd"
+                    applicationImageProject = "cicd"
 
                     WORKSPACE = "/tmp/${JOB_NAME}/${BUILD_NUMBER}"
 
