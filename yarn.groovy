@@ -74,7 +74,8 @@ pipeline {
                                 #!/bin/bash
         
                                 set +x
-                                ls -lrt ../
+                                pwd
+                                ls -lart ../
                                 export PATH=~/bin:$PATH
                                 echo yarnrc content
                                 cat /home/jenkins/.yarnrc
