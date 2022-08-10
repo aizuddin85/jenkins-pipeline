@@ -1,4 +1,4 @@
-@NonCPS
+
 def createOcParams(def params) {
     String paramsStr = ''
     params.each { key, val ->
